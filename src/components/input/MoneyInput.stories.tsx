@@ -1,6 +1,6 @@
 import React from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { MoneyInput } from './MoneyInput'
 const meta = {
     title: 'Components/MoneyInput',
@@ -12,7 +12,7 @@ const meta = {
 } satisfies Meta<typeof MoneyInput>
 
 export default meta
-type Story = StoryObj<typeof meta>
+// type Story = StoryObj<typeof meta>
 
 export const Basic = {
     render: () => {
@@ -23,7 +23,7 @@ export const Basic = {
 
         return (
             <>
-                <div>'1,234.56'</div>
+                <div>1,234.56</div>
                 <MoneyInput value={value} onChange={handleOnChange} />
             </>
         )
