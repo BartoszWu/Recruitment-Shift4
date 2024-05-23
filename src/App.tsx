@@ -1,9 +1,10 @@
 import './App.css'
+import { MoneyInput } from './components/input/moneyInput'
 
 function App() {
     return (
         <>
-            <h1 className="text-3xl">Hello Word</h1>
+            <MoneyInput />
         </>
     )
 }
