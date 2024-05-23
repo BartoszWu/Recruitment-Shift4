@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './App.css'
-import { MoneyInput } from '@/components/input/MoneyInput.tsx'
+import { MoneyInput } from './components/input/MoneyInput.tsx'
 
 function App() {
     const [value, setValue] = React.useState('')
