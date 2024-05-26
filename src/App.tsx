@@ -1,15 +1,10 @@
-import React from 'react'
-
 import './App.css'
-import { MoneyInput } from './components/input/MoneyInput.tsx'
+import { DonationForm } from './app/DonationForm'
 
-function App() {
-    const [value, setValue] = React.useState('')
+export const App = () => {
     return (
-        <>
-            <MoneyInput value={value} onChange={setValue} />
-        </>
+        <div className="mx-auto  max-w-2xl p-10">
+            <DonationForm />
+        </div>
     )
 }
-
-export default App
