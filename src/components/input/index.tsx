@@ -3,17 +3,13 @@ import { Label } from '../label'
 
 type Props = {
     label?: string
-    className?: string
     prefix?: React.ReactNode
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix'>
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
-    (
-        { className, label, type, value, onChange, prefix, ...inputProps },
-        ref
-    ) => {
+    ({ label, type, value, onChange, prefix, ...inputProps }, ref) => {
         return (
-            <div className={className}>
+            <>
                 {label && <Label>{label}</Label>}
                 <div className="focus-within:border-midnightPurple flex items-center rounded border border-border p-4 align-middle">
                     {prefix && <span className="pr-4">{prefix}</span>}
@@ -26,7 +22,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         {...inputProps}
                     />
                 </div>
-            </div>
+            </>
         )
     }
 )

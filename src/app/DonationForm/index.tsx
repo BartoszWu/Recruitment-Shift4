@@ -45,38 +45,38 @@ export const DonationForm = () => {
     })
 
     return (
-        <div className=" bg-white mx-auto max-w-sm rounded-lg pb-[58px] shadow-lg">
-            <div className="relative">
-                <CloseButton
-                    onClick={() => console.log('onClose')}
-                    className="absolute right-[29px] top-[21px] z-10 "
-                />
-                <DonationFormBanner />
-            </div>
-            <div className="px-6 pt-8">
-                <div className="pb-4">
-                    <MoneyInput
-                        label="I can donate"
-                        value={moneyText}
-                        onChange={handleOnMoneyInputChange}
-                    />
+        <div className="bg-white relative mx-auto rounded-lg pb-[58px] shadow-lg md:w-[600px] md:pb-10">
+            <CloseButton
+                onClick={() => console.log('onClose')}
+                className="absolute right-[29px] top-[21px] z-10 md:hidden"
+            />
+            <DonationFormBanner />
+            <div className="px-6 pt-8 md:px-10">
+                <div className="md:flex md:gap-6">
+                    <div className="pb-4 md:flex-1 md:pb-0">
+                        <MoneyInput
+                            label="I can donate"
+                            value={moneyText}
+                            onChange={handleOnMoneyInputChange}
+                        />
+                    </div>
+
+                    <div className="pb-10 md:flex-1 md:pb-0">
+                        <MonthPicker
+                            minDate={getNextMonthFromCurrentDate()}
+                            value={date}
+                            onChange={setDate}
+                            label="Every month until"
+                        />
+                    </div>
                 </div>
 
-                <div className="pb-10">
-                    <MonthPicker
-                        minDate={getNextMonthFromCurrentDate()}
-                        value={date}
-                        onChange={setDate}
-                        label="Every month until"
-                    />
-                </div>
-
-                <div className="mb-10 rounded border border-border">
-                    <div className="px-4 py-6">
-                        <p className="font-medium text-textPrimary">
+                <div className="mb-10 rounded border border-border md:border-hidden">
+                    <div className="flex px-4 py-6">
+                        <p className="font-medium text-textPrimary md:text-2xl">
                             Total amount
                         </p>
-                        <p className="font-inter text-purpleGray text-2xl font-bold">
+                        <p className="font-inter text-purpleGray md:text-3xl flex-grow text-2xl font-bold md:text-right">
                             {numberToCurrency(totalAmount)}
                         </p>
                     </div>
@@ -94,11 +94,14 @@ export const DonationForm = () => {
                     </div>
                 </div>
 
-                <div className="lg:flex lg:justify-between">
+                <div className="gap-[27px] lg:flex lg:justify-between">
+                    <Button
+                        variant="outlined"
+                        className="hidden w-full md:block"
+                    >
+                        Cancel
+                    </Button>
                     <Button className="w-full ">Continue</Button>
-                    {/*<Button className="hidden w-full md:block lg:mr-2 lg:w-auto">*/}
-                    {/*    Cancel*/}
-                    {/*</Button>*/}
                 </div>
             </div>
         </div>
