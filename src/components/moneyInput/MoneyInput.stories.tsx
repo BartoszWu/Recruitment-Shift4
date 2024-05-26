@@ -1,11 +1,11 @@
 import React from 'react'
 
 import type { Meta } from '@storybook/react'
-import { MoneyInput } from './MoneyInput'
+import { MoneyInput } from './'
+
 const meta = {
     title: 'Components/MoneyInput',
     component: MoneyInput,
-    tags: ['autodocs'],
     parameters: {
         layout: 'fullscreen',
     },
