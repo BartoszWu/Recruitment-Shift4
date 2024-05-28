@@ -1,8 +1,6 @@
 import ArrowLeft from '../../../icons/arrowLeft.svg?react'
 import ArrowRight from '../../../icons/arrowRight.svg?react'
 
-//TODO: change it to button
-
 type Props = {
     onClick: () => void
     type: 'left' | 'right'

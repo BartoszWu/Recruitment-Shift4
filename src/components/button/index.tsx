@@ -5,7 +5,7 @@ type Props = {
     variant?: 'primary' | 'outlined'
     className?: string
     children: React.ReactNode
-    onClick?: () => void
+    onClick: () => void
 }
 
 const variantStyles = {

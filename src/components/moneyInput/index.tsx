@@ -2,72 +2,16 @@ import { Input } from '../input'
 import React, { useEffect } from 'react'
 import DollarIcon from '../../icons/dollar.svg?react'
 import { numberToCurrency } from '../../utils/format.ts'
+import {
+    calculateCursorPosition,
+    formatNumericValue,
+    parseAndCleanNumericString,
+} from './utils.ts'
 
 type Props = {
     label?: string
     value: string
     onChange: (formattedValue: string, value: number) => void
-}
-
-// Removes all non-numeric characters except for the decimal point and parses the result to a float.
-const parseNumericString = (input: string) => {
-    const number = parseFloat(input.replace(/[^0-9.]/g, ''))
-    if (!isNaN(number)) {
-        return number
-    }
-
-    return 0
-}
-
-const formatValue = (inputText: string): string => {
-    let formattedValue: string | number = inputText
-
-    // Do not allow to input starts with `.`
-    if (formattedValue.startsWith('.')) {
-        return formattedValue.substring(1)
-    }
-
-    if (formattedValue.endsWith('.')) {
-        // Check if there is another `.` in text.
-        if (formattedValue.indexOf('.') === formattedValue.length - 1) {
-            return formattedValue
-        }
-
-        // There is another `.` in text do not allow it.
-        return formattedValue.slice(0, -1)
-    }
-
-    // Do not allow to put `.` before `,`
-    if (
-        formattedValue.includes('.') &&
-        formattedValue.lastIndexOf(',') > formattedValue.indexOf('.')
-    ) {
-        return formattedValue.replace('.', '')
-    }
-
-    // Remove all non-numeric characters except for decimal point to format number properly.
-    formattedValue = parseFloat(formattedValue)
-
-    if (!isNaN(formattedValue)) {
-        return Intl.NumberFormat('en-US', {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 2,
-        }).format(formattedValue)
-    }
-
-    return ''
-}
-
-const calculateCursorPosition = (
-    currentPosition: number | null,
-    oldValue: string,
-    newValue: string
-) => {
-    if (currentPosition !== null && newValue !== oldValue) {
-        return currentPosition + (newValue.length - oldValue.length)
-    }
-
-    return currentPosition
 }
 
 export const MoneyInput = ({ label, value, onChange }: Props) => {
@@ -90,8 +34,8 @@ export const MoneyInput = ({ label, value, onChange }: Props) => {
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputText = event.currentTarget.value
-        const floatNumber = parseNumericString(inputText)
-        const formattedText = formatValue(inputText)
+        const floatNumber = parseAndCleanNumericString(inputText)
+        const formattedText = formatNumericValue(inputText)
 
         const currentCursorPosition = event.target.selectionStart
         const newCursorPosition = calculateCursorPosition(
@@ -112,10 +56,11 @@ export const MoneyInput = ({ label, value, onChange }: Props) => {
     }
 
     const handleOnBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const floatNumber = parseNumericString(event.currentTarget.value)
+        const floatNumber = parseAndCleanNumericString(
+            event.currentTarget.value
+        )
 
         if (!isNaN(floatNumber)) {
-            // Format value to include two fractional digits on end and remove $ sign
             onChange(
                 numberToCurrency(floatNumber).replace('$', ''),
                 floatNumber
