@@ -12,7 +12,6 @@ const meta = {
 } satisfies Meta<typeof MoneyInput>
 
 export default meta
-// type Story = StoryObj<typeof meta>
 
 export const Basic = {
     render: () => {
@@ -21,11 +20,6 @@ export const Basic = {
             onChange(newVal)
         }
 
-        return (
-            <>
-                <div>1,234.56</div>
-                <MoneyInput value={value} onChange={handleOnChange} />
-            </>
-        )
+        return <MoneyInput value={value} onChange={handleOnChange} />
     },
 }
