@@ -24,20 +24,20 @@ module.exports = {
         },
         colors: {
             white: '#ffffff',
-            textPrimary: '#1E2A32', // Used for normal text
-            textSecondary: '#595D7B', // Use for numbers, button outlined text color
-            purpleGray: '#595D7B',
-            textMuted: '#EEEEEE', // Used in input placeholder
-            textLabel: '#4D6475', // Used in datepicker year text color and label text color
-            border: '#E9EEF2', // Used in button border, datepicker, input
-            backgroundHover: '#F3F5FE', // Used in button hover color
-            midnightPurple: '#423C66', // Used in button primary background and input border focus color
-            twilightPurple: '#645D93', // Used in button primary variant on hover
-            darkMidnightPurple: '#241E47', // Used in button primary active color
-            lavenderMist: '#B2A7F4', // Used in button outlined hover & active color
-            salmon: '#FFDBCB',
-            closeButtonActive: '#F2D0C1', // close
+            textPrimary: '#1E2A32',
+            textSecondary: '#3D4256',
+            textMuted: '#EEEEEE',
+            textLabel: '#4D6475',
+            border: '#E9EEF2',
+            backgroundPage: '#F4F8FA',
+            backgroundHover: '#F3F5FE',
             backgroundInfo: '#F4F8FA',
+            buttonPrimary: '#423C66',
+            buttonPrimaryHover: '#645D93',
+            buttonPrimaryActive: '#241E47',
+            buttonOutlinedHover: '#B2A7F4',
+            alertBackground: '#FFDBCB',
+            closeButtonActive: '#F2D0C1',
         },
     },
 }

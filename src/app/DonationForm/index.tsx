@@ -26,7 +26,7 @@ export const DonationForm = () => {
     }
 
     return (
-        <div className="bg-white relative mx-auto rounded-lg pb-[58px] shadow-lg md:w-[600px] md:pb-10">
+        <div className="bg-white relative mx-auto rounded-lg pb-[50px] md:w-[600px] md:pb-10 md:shadow-lg">
             <CloseButton
                 onClick={() => console.log('onClose')}
                 className="absolute right-[29px] top-[21px] z-10 md:hidden"

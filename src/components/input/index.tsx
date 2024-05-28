@@ -11,7 +11,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         return (
             <>
                 {label && <Label>{label}</Label>}
-                <div className="focus-within:border-midnightPurple flex items-center rounded border border-border p-4 align-middle">
+                <div className="focus-within:border-buttonPrimary flex items-center rounded border border-border p-4 align-middle">
                     {prefix && <span className="pr-4">{prefix}</span>}
                     <input
                         className="w-full font-rubik text-2xl text-textSecondary outline-none placeholder:font-rubik placeholder:text-textMuted"

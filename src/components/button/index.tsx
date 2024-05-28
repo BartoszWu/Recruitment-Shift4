@@ -10,9 +10,9 @@ type Props = {
 
 const variantStyles = {
     primary:
-        'text-white bg-midnightPurple hover:bg-twilightPurple active:bg-darkMidnightPurple',
+        'text-white bg-buttonPrimary hover:bg-buttonPrimaryHover active:bg-buttonPrimaryActive',
     outlined:
-        'text-textSecondary bg-white hover:bg-lavenderMist active:bg-lavenderMist hover:bg-opacity-10 active:bg-opacity-25 border-textSecondary border',
+        'text-textSecondary bg-white hover:bg-buttonOutlinedHover active:bg-buttonOutlinedHover hover:bg-opacity-10 active:bg-opacity-25 border-textSecondary border',
 }
 
 export const Button = ({
@@ -26,7 +26,7 @@ export const Button = ({
             onClick={onClick}
             className={clsx(
                 `
-             text-base rounded px-4 py-6 font-workSans font-semibold
+             text-base rounded p-4 font-workSans font-semibold
         `,
                 variantStyles[variant],
                 className

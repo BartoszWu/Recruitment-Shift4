@@ -30,7 +30,7 @@ export const DonationSummary = ({ date, moneyValue }: Props) => {
                 <p className="font-medium text-textPrimary md:text-2xl">
                     Total amount
                 </p>
-                <p className="font-inter text-purpleGray md:text-3xl flex-grow text-right text-2xl font-bold">
+                <p className="font-inter md:text-3xl flex-grow text-right text-2xl font-bold text-textSecondary">
                     {numberToCurrency(totalAmount)}
                 </p>
             </div>
