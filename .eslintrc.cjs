@@ -18,6 +18,15 @@ module.exports = {
             { allowConstantExport: true },
         ],
     },
+    overrides: [
+        {
+            files: ['*.test.tsx', '*.test.ts'],
+            rules: {
+                "@typescript-eslint/no-empty-function": 'off'
+            }
+        },
+
+    ],
     settings: {
         react: {
             version: 'detect',
