@@ -1,4 +1,5 @@
 // Function to check if formattedValue includes a dot and the last comma is after the first dot
+
 const isCommaAfterDot = (input: string) => {
     return input.includes('.') && input.lastIndexOf(',') > input.indexOf('.')
 }
@@ -8,7 +9,7 @@ const hasDecimalPartAndEndsWithZero = (formattedValue: string) => {
     return formattedValue.includes('.') && formattedValue.endsWith('0')
 }
 
-// calculates the new cursor position after a value change in an input field.
+// Calculates the new cursor position after a value change in an input field.
 export const calculateCursorPosition = (
     currentPosition: number | null,
     oldValue: string,

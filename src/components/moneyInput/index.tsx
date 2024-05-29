@@ -6,7 +6,7 @@ import {
     calculateCursorPosition,
     formatNumericValue,
     parseAndCleanNumericString,
-} from './utils.ts'
+} from './utils/utils.ts'
 
 type Props = {
     label?: string
