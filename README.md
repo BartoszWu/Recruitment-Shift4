@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# Shift4 Technical Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My main idea for this task was to minimize dependencies in the project, only adding them if absolutely necessary. Additionally, I focused on clear code and readability.
 
-Currently, two official plugins are available:
+## Quick Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get started, clone the repository and run `npm install` to install dependencies 🙏
 
-## Expanding the ESLint configuration
+### Available Scripts:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `npm run dev`: Run the server in development mode.
+- `npm run build`: Build the project.
+- `npm test`: Run all tests using Vitest.
+- `npm run e2e`: Run app component tests using Cypress component testing.
+- `npm run lint`: Lint the entire project.
+- `npm run storybook`: Run Storybook in development mode.
+- `npm run build-storybook`: Build Storybook.
 
-- Configure the top-level `parserOptions` property like this:
+## Technology Stack and Rationale
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Vite**: I chose Vite for building the project due to its speed and ease when starting new projects.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **TailwindCSS**: For styling, TailwindCSS was selected to avoid runtime style generation and to help in making the app responsive. For Tailwind, I tried to use tokens as much as possible, but in some design situations, arbitrary values were necessary.
+
+- **Vitest**: I used Vitest to do unit tests.
+
+## Potential Improvements
+
+- Due to the lack of time and to avoid prolonging the home task indefinitely, I only included basic unit tests for the most complicated component here, which is the MoneyInput. Normally, in day-to-day work, I would include unit tests for every component. Additionally, I would definitely add E2E tests with tools like Cypress as ensuring inputs have correct values becomes increasingly complex and requires comprehensive testing scenarios.
