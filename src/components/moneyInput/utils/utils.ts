@@ -4,6 +4,24 @@ const isCommaAfterDot = (input: string) => {
     return input.includes('.') && input.lastIndexOf(',') > input.indexOf('.')
 }
 
+export const hasMoreThanOneDot = (input: string): boolean => {
+    let dotCount = 0
+
+    for (const char of input) {
+        if (char === '.') {
+            dotCount++
+        }
+
+        // If more than one dot is found, return true.
+        if (dotCount > 1) {
+            return true
+        }
+    }
+
+    // Return false if zero or one dot is found.
+    return false
+}
+
 // Function to check if the value ends with '0' or '00' in decimal part
 const hasDecimalPartAndEndsWithZero = (formattedValue: string) => {
     return formattedValue.includes('.') && formattedValue.endsWith('0')
@@ -32,7 +50,10 @@ export const parseAndCleanNumericString = (input: string) => {
     return 0
 }
 
-export const formatNumericValue = (inputText: string): string => {
+export const formatNumericValue = (
+    inputText: string,
+    previousValue: string
+) => {
     let formattedValue: string | number = inputText
 
     // Do not allow to input starts with decimal point.
@@ -50,9 +71,14 @@ export const formatNumericValue = (inputText: string): string => {
         return formattedValue.slice(0, -1)
     }
 
+    // User add another dot which should be not allowed
+    if (hasMoreThanOneDot(formattedValue)) {
+        return previousValue
+    }
+
     // Do not allow to put decimal point before thousands separator.
     if (isCommaAfterDot(formattedValue)) {
-        return formattedValue.replace('.', '')
+        return previousValue
     }
 
     let decimalPlaces = 0

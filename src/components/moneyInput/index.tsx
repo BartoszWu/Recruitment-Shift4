@@ -34,8 +34,7 @@ export const MoneyInput = ({ label, value, onChange }: Props) => {
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputText = event.currentTarget.value
-        const floatNumber = parseAndCleanNumericString(inputText)
-        const formattedText = formatNumericValue(inputText)
+        const formattedText = formatNumericValue(inputText, value)
 
         const currentCursorPosition = event.target.selectionStart
         const newCursorPosition = calculateCursorPosition(
@@ -51,6 +50,7 @@ export const MoneyInput = ({ label, value, onChange }: Props) => {
         ) {
             setInputModified(true)
         }
+        const floatNumber = parseAndCleanNumericString(formattedText)
 
         onChange(formattedText, floatNumber)
     }
